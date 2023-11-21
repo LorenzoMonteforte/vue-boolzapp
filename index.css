@@ -60,13 +60,15 @@
     translate: -50% -50%;
     display: flex;
 }
+
+.fonSiz1_25rem{
+    font-size: 1.25rem;
+}
 /* Contacts container */
 #contactsContainer{
     height: 100%;
     width: 35%;
     background-color: white;
-    display: flex;
-    flex-direction: column;
 }
 
 #user{
@@ -74,6 +76,7 @@
     display: flex;
     justify-content: space-between;
     background-color: rgba(238,235,233,255);
+    height: 64px;
 }
 
 #user > div{
@@ -86,6 +89,7 @@
     padding: 1rem;
     display: flex;
     align-items: center;
+    height: 80px;
 }
 
 #notifications > div:first-child{
@@ -100,6 +104,7 @@
     padding: 0.5rem;
     display: flex;
     background-color: rgba(238,235,233,255);
+    height: 48px;
 }
 
 #searchBar > button{
@@ -125,6 +130,7 @@
 /* Contacts */
 #contacts{
     overflow: auto;
+    height: calc(100% - 192px);
 }
 
 .contact{
@@ -142,4 +148,97 @@
     height: 100%;
     width: 65%;
     background-color: rgba(238,235,233,255);
+}
+/* Info contact chat */
+#infoContactChat{
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    border-left: 1px solid rgba(233,235,235,255);
+}
+
+#infoContactChat > div{
+    display: flex;
+    align-items: center;
+}
+/* Message container */
+#messageContainer{
+    height: calc(100% - 120px);
+    background-image: url("img/mine.jpg");
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.messageCard{
+    width: 40%;
+    border-radius: 0.5rem;
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.messageCard:first-of-type{
+    margin-top: 0;
+}
+
+.messageCard > div:first-child{
+    width: 70%;
+    font-size: 0.75rem;
+    padding: 1rem;
+    padding-right: 0;
+}
+
+.messageCard > div:last-child{
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 0.5rem;
+    padding: 0.5rem;
+}
+
+.sent{
+    background-color: rgba(213,249,186,255);
+    align-self: flex-end;
+}
+
+.received{
+    background-color: white;
+    align-self: flex-start;
+}
+/* Input message */
+#inputMessage{
+    padding: 0.5rem;
+    display: flex;
+    height: 56px;
+}
+
+#inputMessage > div:first-child,
+#inputMessage > div:last-child{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inputMessage > div:nth-child(2){
+    width: 80%;
+}
+
+#inputMessage > div:nth-child(2) > input{
+    height: 2.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}
+
+#inputMessage > div:nth-child(2) > input::placeholder{
+    color: rgba(177,177,177,255);
+}
+
+#inputMessage > div:nth-child(2) > input:focus{
+    outline: none;
 }
