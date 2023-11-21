@@ -23,7 +23,8 @@ createApp({
                             hour : "16:15",
                             status : "received"
                         }
-                    ]
+                    ],
+                    visible : true
                 },
                 {
                     srcProfilePicture: "img/avatar_2.jpg",
@@ -45,7 +46,8 @@ createApp({
                             hour : "16:35",
                             status : "sent"
                         }
-                    ]
+                    ],
+                    visible : true
                 },
                 {
                     srcProfilePicture: "img/avatar_3.jpg",
@@ -67,7 +69,8 @@ createApp({
                             hour : "16:15",
                             status : "received"
                         }
-                    ]
+                    ],
+                    visible : true
                 },
                 {
                     srcProfilePicture: "img/avatar_4.jpg",
@@ -84,7 +87,8 @@ createApp({
                             hour : "15:50",
                             status : "received"
                         }
-                    ]
+                    ],
+                    visible : true
                 },
                 {
                     srcProfilePicture: "img/avatar_5.jpg",
@@ -101,7 +105,8 @@ createApp({
                             hour : "15:50",
                             status : "received"
                         }
-                    ]
+                    ],
+                    visible : true
                 },
                 {
                     srcProfilePicture: "img/avatar_6.jpg",
@@ -123,7 +128,8 @@ createApp({
                             hour : "15:51",
                             status : "sent"
                         }
-                    ]
+                    ],
+                    visible : true
                 },
                 {
                     srcProfilePicture: "img/avatar_7.jpg",
@@ -140,7 +146,8 @@ createApp({
                             hour : "15:50",
                             status : "received"
                         }
-                    ]
+                    ],
+                    visible : true
                 },
                 {
                     srcProfilePicture : "img/avatar_8.jpg",
@@ -162,11 +169,13 @@ createApp({
                             hour : "15:51",
                             status : "received"
                         }
-                    ]
+                    ],
+                    visible : true
                 }
             ],
             chatToShow: 0,
-            inputUser : ""
+            inputUser : "",
+            inputFilter : ""
         }
     },
     methods : {
@@ -191,6 +200,17 @@ createApp({
             setTimeout(()=>{
                 this.autoReply(i);
             }, 1000)
+        },
+        filter : function(){
+            const inputFilterLength = this.inputFilter.length;
+            for(let i=0; i<this.contacts.length; i++){
+                const subString = this.contacts[i].name.substr(0, inputFilterLength);
+                if(this.inputFilter == subString){
+                    this.contacts[i].visible = true;
+                }else{
+                    this.contacts[i].visible = false;
+                }
+            }
         }
     }
 }).mount('#app')

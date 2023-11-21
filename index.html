@@ -41,14 +41,14 @@
                 </div>
                 <!-- Search bar -->
                 <div id="searchBar">
-                    <button>
+                    <button @click="filter()">
                         <i class="fa-solid fa-magnifying-glass colGre"></i>
                     </button>
-                    <input class="colGre" type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input class="colGre" type="text" placeholder="Cerca o inizia una nuova chat" v-model="inputFilter">
                 </div>
                 <!-- Contacts -->
                 <div id="contacts">
-                    <div class="contact" v-for="(contact, i) in contacts" v-bind:class="i == chatToShow ? 'bacColGre' : ''" @click="showChat(i)">
+                    <div class="contact" v-for="(contact, i) in contacts" v-bind:class="i == chatToShow ? 'bacColGre' : ''" @click="showChat(i)" v-show="contact.visible == true">
                         <div>
                             <img class="profilePicture" v-bind:src="contact.srcProfilePicture" v-bind:alt="contact.alt">
                             <div class="marLef0_5rem">
