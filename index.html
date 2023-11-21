@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <div id="app">
@@ -14,8 +15,53 @@
         <div></div>
         <!-- Container -->
         <div id="container">
-            <!-- Contacts -->
-            <div id="contacts"></div>
+            <!-- Contacts container -->
+            <div id="contactsContainer">
+                <!-- User -->
+                <div id="user">
+                    <div>
+                        <img class="profilePicture" src="img/avatar_io.jpg" alt="Foto profilo user">
+                        <div class="marLef0_5rem">Sofia</div>
+                    </div>
+                    <div class="colGre">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message marLef1rem"></i>
+                        <i class="fa-solid fa-ellipsis-vertical marLef1rem marRig0_5rem"></i>
+                    </div>
+                </div>
+                <!-- Notifications -->
+                <div id="notifications">
+                    <div class="profilePicture">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="marLef0_5rem">
+                        <h5>Ricevi notifiche di nuovi messaggi</h5>
+                        <a class="fonSiz0_75rem colGre" href="">Attiva notifiche desktop</a>
+                    </div>
+                </div>
+                <!-- Search bar -->
+                <div id="searchBar">
+                    <button>
+                        <i class="fa-solid fa-magnifying-glass colGre"></i>
+                    </button>
+                    <input class="colGre" type="text" placeholder="Cerca o inizia una nuova chat">
+                </div>
+                <!-- Contacts -->
+                <div id="contacts">
+                    <div class="contact" v-for="(contact, i) in contacts" v-bind:class="i == 0 ? 'bacColGre' : ''">
+                        <div>
+                            <img class="profilePicture" v-bind:src="contact.srcProfilePicture" v-bind:alt="contact.alt">
+                            <div class="marLef0_5rem">
+                                <div>{{contact.name}}</div>
+                                <div class="fonSiz0_75rem colGre">Ultimo messaggio inviato</div>
+                            </div>
+                        </div>
+                        <div class="fonSiz0_75rem colGre">
+                            12:00
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Chat -->
             <div id="chat"></div>
         </div>

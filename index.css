@@ -9,6 +9,37 @@
 #app{
     position: relative;
 }
+
+.profilePicture{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.marLef0_5rem{
+    margin-left: 0.5rem;
+}
+
+.marLef1rem{
+    margin-left: 1rem;
+}
+
+.marRig0_5rem{
+    margin-right: 0.5rem;
+}
+
+.colGre{
+    color: rgba(177,177,177,255);
+}
+
+.fonSiz0_75rem{
+    font-size: 0.75rem;
+}
+
+.bacColGre{
+    background-color: rgba(233,235,235,255);
+}
 /* Background */
 #app > div:first-child{
     height: 15vh;
@@ -23,20 +54,92 @@
 #container{
     height: 95vh;
     width: 80%;
-    background-color: rgba(238,235,233,255);
     position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
     display: flex;
 }
-/* Contacts */
-#contacts{
+/* Contacts container */
+#contactsContainer{
     height: 100%;
     width: 35%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#user{
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(238,235,233,255);
+}
+
+#user > div{
+    display: flex;
+    align-items: center;
+}
+/* Notifications */
+#notifications{
+    background-color: rgba(142,218,252,255);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+#notifications > div:first-child{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(142,218,252,255);
+}
+/* Search bar */
+#searchBar{
+    padding: 0.5rem;
+    display: flex;
+    background-color: rgba(238,235,233,255);
+}
+
+#searchBar > button{
+    height: 2rem;
+    width: 4rem;
+    border: none;
+    background-color: white;
+}
+
+#searchBar > input{
+    width: 100%;
+    border: none;
+    padding: 0.5rem;
+}
+
+#searchBar > input::placeholder{
+    color: rgba(177,177,177,255);
+}
+
+#searchBar > input:focus{
+    outline: none;
+}
+/* Contacts */
+#contacts{
+    overflow: auto;
+}
+
+.contact{
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(233,235,235,255);
+}
+
+.contact > div:first-child{
+    display: flex;
 }
 /* Chat */
 #chat{
     height: 100%;
     width: 65%;
+    background-color: rgba(238,235,233,255);
 }
