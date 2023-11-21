@@ -48,7 +48,7 @@
                 </div>
                 <!-- Contacts -->
                 <div id="contacts">
-                    <div class="contact" v-for="(contact, i) in contacts" v-bind:class="i == 0 ? 'bacColGre' : ''">
+                    <div class="contact" v-for="(contact, i) in contacts" v-bind:class="i == chatToShow ? 'bacColGre' : ''" @click="showChat(i)">
                         <div>
                             <img class="profilePicture" v-bind:src="contact.srcProfilePicture" v-bind:alt="contact.alt">
                             <div class="marLef0_5rem">
@@ -81,17 +81,9 @@
                 </div>
                 <!-- Message container -->
                 <div id="messageContainer">
-                    <div class="messageCard sent">
-                        <div>Hai portato a spasso il cane?</div>
-                        <div class="colGre">15:30</div>
-                    </div>
-                    <div class="messageCard sent">
-                        <div>Ricordati di stendere i panni</div>
-                        <div class="colGre">15:50</div>
-                    </div>
-                    <div class="messageCard received">
-                        <div>Tutto fatto!</div>
-                        <div class="colGre">16:15</div>
+                    <div class="messageCard" v-for="message in contacts[chatToShow].messages" v-bind:class="message.status == 'sent' ? 'sent' : 'received'">
+                        <div>{{message.message}}</div>
+                        <div class="colGre">{{message.hour}}</div>
                     </div>
                 </div>
                 <!-- Input message -->
