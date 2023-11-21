@@ -20,7 +20,7 @@
     background-color: rgba(222,219,209,255);
 }
 /* Container */
-#app > div:last-child{
+#container{
     height: 95vh;
     width: 80%;
     background-color: rgba(238,235,233,255);
@@ -28,4 +28,15 @@
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+    display: flex;
+}
+/* Contacts */
+#contacts{
+    height: 100%;
+    width: 35%;
+}
+/* Chat */
+#chat{
+    height: 100%;
+    width: 65%;
 }
