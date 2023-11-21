@@ -67,9 +67,9 @@
                 <!-- Info contact chat -->
                 <div id="infoContactChat">
                     <div>
-                        <img class="profilePicture" src="img/avatar_1.jpg" alt="Contatto 1">
+                        <img class="profilePicture" v-bind:src="contacts[chatToShow].srcProfilePicture" alt="Contatto 1">
                         <div class="marLef0_5rem">
-                            <div>Michele</div>
+                            <div>{{contacts[chatToShow].name}}</div>
                             <div class="fonSiz0_75rem colGre">Ultimo accesso oggi alle 12:00</div>
                         </div>
                     </div>
