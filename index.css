@@ -1,0 +1,31 @@
+/* Generals */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#app{
+    position: relative;
+}
+/* Background */
+#app > div:first-child{
+    height: 15vh;
+    background-color: rgba(0,150,136,255);
+}
+
+#app > div:nth-child(2){
+    height: 85vh;
+    background-color: rgba(222,219,209,255);
+}
+/* Container */
+#app > div:last-child{
+    height: 95vh;
+    width: 80%;
+    background-color: rgba(238,235,233,255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
