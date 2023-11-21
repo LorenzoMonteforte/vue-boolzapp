@@ -165,12 +165,32 @@ createApp({
                     ]
                 }
             ],
-            chatToShow: 0
+            chatToShow: 0,
+            inputUser : ""
         }
     },
     methods : {
         showChat : function(i){
             this.chatToShow = i; 
+        },
+        autoReply : function(i){
+            this.contacts[i].messages.push({
+                message : "OK",
+                hour : "12:00",
+                status : "received"
+            });
+        },
+        sendMessage : function(){
+            const i = this.chatToShow;
+            this.contacts[this.chatToShow].messages.push({
+                message : this.inputUser,
+                hour : "12:00",
+                status : "sent"
+            });
+            this.inputUser = "";
+            setTimeout(()=>{
+                this.autoReply(i);
+            }, 1000)
         }
     }
 }).mount('#app')

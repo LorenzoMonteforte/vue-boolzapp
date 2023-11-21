@@ -92,7 +92,7 @@
                         <i class="fa-regular fa-face-smile fonSiz1_25rem colGre"></i>
                     </div>
                     <div>
-                        <input class="colGre" type="text" placeholder="Scrivi un messaggio">
+                        <input class="colGre" type="text" placeholder="Scrivi un messaggio" v-model="inputUser" @keyup.enter="sendMessage()">
                     </div>
                     <div>
                         <i class="fa-solid fa-microphone fonSiz1_25rem colGre"></i>
