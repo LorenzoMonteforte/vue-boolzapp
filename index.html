@@ -11,10 +11,10 @@
 <body>
     <div id="app">
         <!-- Background -->
-        <div></div>
-        <div></div>
+        <div @click="removeAllDelateMessage()"></div>
+        <div @click="removeAllDelateMessage()"></div>
         <!-- Container -->
-        <div id="container">
+        <div id="container" @click="removeAllDelateMessage()">
             <!-- Contacts container -->
             <div id="contactsContainer">
                 <!-- User -->
@@ -81,9 +81,13 @@
                 </div>
                 <!-- Message container -->
                 <div id="messageContainer">
-                    <div class="messageCard" v-for="message in contacts[chatToShow].messages" v-bind:class="message.status == 'sent' ? 'sent' : 'received'">
+                    <div class="messageCard" v-for="(message, i) in contacts[chatToShow].messages" v-bind:class="message.status == 'sent' ? 'sent' : 'received'" @click.prevent.right="showDelateMessage(i)">
                         <div>{{message.message}}</div>
                         <div class="colGre">{{message.hour}}</div>
+                        <div v-show="message.delateMessage == true" @click="delateMessage(i)">
+                            <i class="fa-solid fa-trash marRig0_5rem"></i>
+                            Elimina messaggio
+                        </div>
                     </div>
                 </div>
                 <!-- Input message -->
