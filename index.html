@@ -53,12 +53,10 @@
                             <img class="profilePicture" v-bind:src="contact.srcProfilePicture" v-bind:alt="contact.alt">
                             <div class="marLef0_5rem">
                                 <div>{{contact.name}}</div>
-                                <div class="fonSiz0_75rem colGre">Ultimo messaggio inviato</div>
+                                <div class="fonSiz0_75rem colGre">{{contact.messages[contact.messageNumber-1].message}}</div>
                             </div>
                         </div>
-                        <div class="fonSiz0_75rem colGre">
-                            12:00
-                        </div>
+                        <div class="fonSiz0_75rem colGre">{{contact.messages[contact.messageNumber-1].hour}}</div>
                     </div>
                 </div>
             </div>

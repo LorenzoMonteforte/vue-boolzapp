@@ -27,7 +27,8 @@ createApp({
                             delateMessage : false
                         }
                     ],
-                    visible : true
+                    visible : true,
+                    messageNumber : 3
                 },
                 {
                     srcProfilePicture: "img/avatar_2.jpg",
@@ -53,7 +54,8 @@ createApp({
                             delateMessage : false
                         }
                     ],
-                    visible : true
+                    visible : true,
+                    messageNumber : 3
                 },
                 {
                     srcProfilePicture: "img/avatar_3.jpg",
@@ -79,7 +81,8 @@ createApp({
                             delateMessage : false
                         }
                     ],
-                    visible : true
+                    visible : true,
+                    messageNumber : 3
                 },
                 {
                     srcProfilePicture: "img/avatar_4.jpg",
@@ -99,7 +102,8 @@ createApp({
                             delateMessage : false
                         }
                     ],
-                    visible : true
+                    visible : true,
+                    messageNumber : 2
                 },
                 {
                     srcProfilePicture: "img/avatar_5.jpg",
@@ -119,7 +123,8 @@ createApp({
                             delateMessage : false
                         }
                     ],
-                    visible : true
+                    visible : true,
+                    messageNumber : 2
                 },
                 {
                     srcProfilePicture: "img/avatar_6.jpg",
@@ -145,7 +150,8 @@ createApp({
                             delateMessage : false
                         }
                     ],
-                    visible : true
+                    visible : true,
+                    messageNumber : 3
                 },
                 {
                     srcProfilePicture: "img/avatar_7.jpg",
@@ -165,7 +171,8 @@ createApp({
                             delateMessage : false
                         }
                     ],
-                    visible : true
+                    visible : true,
+                    messageNumber : 2
                 },
                 {
                     srcProfilePicture : "img/avatar_8.jpg",
@@ -191,7 +198,8 @@ createApp({
                             delateMessage : false
                         }
                     ],
-                    visible : true
+                    visible : true,
+                    messageNumber : 3
                 }
             ],
             chatToShow: 0,
@@ -210,6 +218,7 @@ createApp({
                 status : "received",
                 delateMessage : false
             });
+            this.contacts[i].messageNumber++;
         },
         sendMessage : function(){
             const i = this.chatToShow;
@@ -219,6 +228,7 @@ createApp({
                 status : "sent",
                 delateMessage : false
             });
+            this.contacts[this.chatToShow].messageNumber++;
             this.inputUser = "";
             setTimeout(()=>{
                 this.autoReply(i);
@@ -250,6 +260,7 @@ createApp({
         },
         delateMessage : function(i){
             this.contacts[this.chatToShow].messages.splice(i, 1);
+            this.contacts[this.chatToShow].messageNumber--;
         }
     }
 }).mount('#app')
