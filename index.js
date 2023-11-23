@@ -28,7 +28,8 @@ createApp({
                         }
                     ],
                     visible : true,
-                    messageNumber : 3
+                    messageNumber : 3,
+                    lastAccess : undefined
                 },
                 {
                     srcProfilePicture: "img/avatar_2.jpg",
@@ -55,7 +56,8 @@ createApp({
                         }
                     ],
                     visible : true,
-                    messageNumber : 3
+                    messageNumber : 3,
+                    lastAccess : undefined
                 },
                 {
                     srcProfilePicture: "img/avatar_3.jpg",
@@ -82,7 +84,8 @@ createApp({
                         }
                     ],
                     visible : true,
-                    messageNumber : 3
+                    messageNumber : 3,
+                    lastAccess : undefined
                 },
                 {
                     srcProfilePicture: "img/avatar_4.jpg",
@@ -103,7 +106,8 @@ createApp({
                         }
                     ],
                     visible : true,
-                    messageNumber : 2
+                    messageNumber : 2,
+                    lastAccess : undefined
                 },
                 {
                     srcProfilePicture: "img/avatar_5.jpg",
@@ -124,7 +128,8 @@ createApp({
                         }
                     ],
                     visible : true,
-                    messageNumber : 2
+                    messageNumber : 2,
+                    lastAccess : undefined
                 },
                 {
                     srcProfilePicture: "img/avatar_6.jpg",
@@ -151,7 +156,8 @@ createApp({
                         }
                     ],
                     visible : true,
-                    messageNumber : 3
+                    messageNumber : 3,
+                    lastAccess : undefined
                 },
                 {
                     srcProfilePicture: "img/avatar_7.jpg",
@@ -172,7 +178,8 @@ createApp({
                         }
                     ],
                     visible : true,
-                    messageNumber : 2
+                    messageNumber : 2,
+                    lastAccess : undefined
                 },
                 {
                     srcProfilePicture : "img/avatar_8.jpg",
@@ -199,7 +206,8 @@ createApp({
                         }
                     ],
                     visible : true,
-                    messageNumber : 3
+                    messageNumber : 3,
+                    lastAccess : undefined
                 }
             ],
             chatToShow: 0,
@@ -215,20 +223,28 @@ createApp({
         showChat : function(i){
             this.chatToShow = i; 
         },
+        getHour : function(){
+            const data = new Date();
+            const hour = data.getHours();
+            const minutes = data.getMinutes();
+            const fullTimetable = hour + ":" + minutes;
+            return fullTimetable;
+        },
         autoReply : function(i){
             this.contacts[i].messages.push({
                 message : "OK",
-                hour : "12:00",
+                hour : this.getHour(),
                 status : "received",
                 delateMessage : false
             });
             this.contacts[i].messageNumber++;
+            this.calculateLastAccess();
         },
         sendMessage : function(){
             const i = this.chatToShow;
             this.contacts[this.chatToShow].messages.push({
                 message : this.inputUser,
-                hour : "12:00",
+                hour : this.getHour(),
                 status : "sent",
                 delateMessage : false
             });
@@ -284,6 +300,19 @@ createApp({
             }else{
                 this.resCla = false;
             }
+        },
+        calculateLastAccess : function(){
+            for(let i=0; i<this.contacts.length; i++){
+                for(let index=this.contacts[i].messages.length; index>0; index--){
+                    if(this.contacts[i].messages[(index-1)].status == "received"){
+                        this.contacts[i].lastAccess = this.contacts[i].messages[(index-1)].hour;
+                        break;
+                    }
+                }
+            }
         }
+    },
+    mounted(){
+        this.calculateLastAccess();
     }
 }).mount('#app')

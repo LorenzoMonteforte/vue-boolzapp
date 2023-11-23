@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <title>Boolzap</title>
     <link rel="stylesheet" href="index.css">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="hover.css">
     <link rel="stylesheet" href="mediaQuery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
     <div id="app">
@@ -70,7 +71,7 @@
                         <img class="profilePicture curPoi" v-bind:src="contacts[chatToShow].srcProfilePicture" alt="Contatto 1">
                         <div class="marLef0_5rem">
                             <div class="curPoi">{{contacts[chatToShow].name}}</div>
-                            <div class="fonSiz0_75rem colGre">Ultimo accesso oggi alle 12:00</div>
+                            <div class="fonSiz0_75rem colGre">Ultimo accesso alle {{contacts[chatToShow].lastAccess}}</div>
                         </div>
                     </div>
                     <div class="colGre">
