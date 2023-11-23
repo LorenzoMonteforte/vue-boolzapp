@@ -339,21 +339,23 @@ createApp({
             this.calculateLastAccess();
         },
         sendMessage : function(){
-            const i = this.chatToShow;
-            this.contacts[this.chatToShow].messages.push({
-                message : this.inputUser,
-                date : {
-                    day : this.getDay(),
-                    hour : this.getHour()
-                },
-                status : "sent",
-                delateMessage : false
-            });
-            this.contacts[this.chatToShow].messageNumber++;
-            this.inputUser = "";
-            setTimeout(()=>{
-                this.autoReply(i);
-            }, 1000)
+            if(this.inputUser != ""){
+                const i = this.chatToShow;
+                this.contacts[this.chatToShow].messages.push({
+                    message : this.inputUser,
+                    date : {
+                        day : this.getDay(),
+                        hour : this.getHour()
+                    },
+                    status : "sent",
+                    delateMessage : false
+                });
+                this.contacts[this.chatToShow].messageNumber++;
+                this.inputUser = "";
+                setTimeout(()=>{
+                    this.autoReply(i);
+                }, 1000)
+            }
         },
         filter : function(){
             const inputFilterLength = this.inputFilter.length;
