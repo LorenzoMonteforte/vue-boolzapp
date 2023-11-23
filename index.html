@@ -59,7 +59,7 @@
                                 <div class="fonSiz0_75rem colGre">{{contact.messages[contact.messageNumber-1].message}}</div>
                             </div>
                         </div>
-                        <div class="fonSiz0_75rem colGre">{{contact.messages[contact.messageNumber-1].hour}}</div>
+                        <div class="fonSiz0_75rem colGre">{{contact.messages[contact.messageNumber-1].date.hour}}</div>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                         <img class="profilePicture curPoi" v-bind:src="contacts[chatToShow].srcProfilePicture" alt="Contatto 1">
                         <div class="marLef0_5rem">
                             <div class="curPoi">{{contacts[chatToShow].name}}</div>
-                            <div class="fonSiz0_75rem colGre">Ultimo accesso alle {{contacts[chatToShow].lastAccess}}</div>
+                            <div class="fonSiz0_75rem colGre">Ultimo accesso {{contacts[chatToShow].lastAccess.day}} alle {{contacts[chatToShow].lastAccess.hour}}</div>
                         </div>
                     </div>
                     <div class="colGre">
@@ -87,7 +87,7 @@
                 <div id="messageContainer">
                     <div class="messageCard" v-for="(message, i) in contacts[chatToShow].messages" v-bind:class="message.status == 'sent' ? 'sent' : 'received'" @click.prevent.right="showDelateMessage(i)">
                         <div>{{message.message}}</div>
-                        <div class="colGre">{{message.hour}}</div>
+                        <div class="colGre">{{message.date.hour}}</div>
                         <div class="curPoi" v-show="message.delateMessage == true" @click="delateMessage(i)">
                             <i class="fa-solid fa-trash marRig0_5rem"></i>
                             Elimina messaggio

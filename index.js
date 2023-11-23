@@ -10,26 +10,38 @@ createApp({
                     messages : [
                         {
                             message : "Hai portato a spasso il cane?",
-                            hour : "15:30",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:30"
+                            },
                             status : "sent",
                             delateMessage : false
                         },
                         {
                             message : "Ricordati di stendere i panni",
-                            hour : "15:50",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:50"
+                            },
                             status : "sent",
                             delateMessage : false
                         },
                         {
                             message : "Tutto fatto",
-                            hour : "16:15",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "16:15"
+                            },
                             status : "received",
                             delateMessage : false
                         }
                     ],
                     visible : true,
                     messageNumber : 3,
-                    lastAccess : undefined
+                    lastAccess : {
+                        day : undefined,
+                        hour : undefined
+                    }
                 },
                 {
                     srcProfilePicture: "img/avatar_2.jpg",
@@ -38,26 +50,38 @@ createApp({
                     messages : [
                         {
                             message : "Ciao come stai?",
-                            hour : "16:30",
+                            date : {
+                                day : "20/03/2020",
+                                hour : "16:30"
+                            },
                             status : "sent",
                             delateMessage : false
                         },
                         {
                             message : "Bene grazie! Stasera ci vediamo?",
-                            hour : "16:30",
+                            date : {
+                                day : "20/03/2020",
+                                hour : "16:30"
+                            },
                             status : "received",
                             delateMessage : false
                         },
                         {
                             message : "Mi piacerebbe ma devo andare a fare la spesa",
-                            hour : "16:35",
+                            date : {
+                                day : "20/03/2020",
+                                hour : "16:35"
+                            },
                             status : "sent",
                             delateMessage : false
                         }
                     ],
                     visible : true,
                     messageNumber : 3,
-                    lastAccess : undefined
+                    lastAccess : {
+                        day : undefined,
+                        hour : undefined
+                    }
                 },
                 {
                     srcProfilePicture: "img/avatar_3.jpg",
@@ -66,26 +90,38 @@ createApp({
                     messages : [
                         {
                             message : "La Marianna va in campagna",
-                            hour : "10:10",
+                            date : {
+                                day : "28/03/2020",
+                                hour : "10:10"
+                            },
                             status : "received",
                             delateMessage : false
                         },
                         {
                             message : "Sicuro di non aver sbagliato chat?",
-                            hour : "10:20",
+                            date : {
+                                day : "28/03/2020",
+                                hour : "10:20"
+                            },
                             status : "sent",
                             delateMessage : false
                         },
                         {
                             message : "Ah scusa!",
-                            hour : "16:15",
+                            date : {
+                                day : "28/03/2020",
+                                hour : "16:15"
+                            },
                             status : "received",
                             delateMessage : false
                         }
                     ],
                     visible : true,
                     messageNumber : 3,
-                    lastAccess : undefined
+                    lastAccess : {
+                        day : undefined,
+                        hour : undefined
+                    }
                 },
                 {
                     srcProfilePicture: "img/avatar_4.jpg",
@@ -94,20 +130,29 @@ createApp({
                     messages : [
                         {
                             message : "Lo sai che ha aperto una nuova pizzeria?",
-                            hour : "15:30",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:30"
+                            },
                             status : "sent",
                             delateMessage : false
                         },
                         {
                             message : "Si, ma preferirei andare al cinema",
-                            hour : "15:50",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:50"
+                            },
                             status : "received",
                             delateMessage : false
                         }
                     ],
                     visible : true,
                     messageNumber : 2,
-                    lastAccess : undefined
+                    lastAccess : {
+                        day : undefined,
+                        hour : undefined
+                    }
                 },
                 {
                     srcProfilePicture: "img/avatar_5.jpg",
@@ -116,20 +161,29 @@ createApp({
                     messages : [
                         {
                             message : "Ricordati di chiamare la nonna",
-                            hour : "15:30",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:30"
+                            },
                             status : "sent",
                             delateMessage : false
                         },
                         {
                             message : "Va bene, stasera la sento",
-                            hour : "15:50",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:50"
+                            },
                             status : "received",
                             delateMessage : false
                         }
                     ],
                     visible : true,
                     messageNumber : 2,
-                    lastAccess : undefined
+                    lastAccess : {
+                        day : undefined,
+                        hour : undefined
+                    }
                 },
                 {
                     srcProfilePicture: "img/avatar_6.jpg",
@@ -138,26 +192,38 @@ createApp({
                     messages : [
                         {
                             message : "Ciao Claudia, hai novità?",
-                            hour : "15:30",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:30"
+                            },
                             status : "sent",
                             delateMessage : false
                         },
                         {
                             message : "Non ancora",
-                            hour : "15:50",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:50"
+                            },
                             status : "received",
                             delateMessage : false
                         },
                         {
                             message : "Nessuna nuova, buona nuova",
-                            hour : "15:51",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:51"
+                            },
                             status : "sent",
                             delateMessage : false
                         }
                     ],
                     visible : true,
                     messageNumber : 3,
-                    lastAccess : undefined
+                    lastAccess : {
+                        day : undefined,
+                        hour : undefined
+                    }
                 },
                 {
                     srcProfilePicture: "img/avatar_7.jpg",
@@ -166,20 +232,29 @@ createApp({
                     messages : [
                         {
                             message : "Fai gli auguri a Martina che è il suo compleanno!",
-                            hour : "15:30",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:30"
+                            },
                             status : "sent",
                             delateMessage : false
                         },
                         {
                             message : "Grazie per avermelo ricordato, le scrivo subito!",
-                            hour : "15:50",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:50"
+                            },
                             status : "received",
                             delateMessage : false
                         }
                     ],
                     visible : true,
                     messageNumber : 2,
-                    lastAccess : undefined
+                    lastAccess : {
+                        day : undefined,
+                        hour : undefined
+                    }
                 },
                 {
                     srcProfilePicture : "img/avatar_8.jpg",
@@ -188,26 +263,38 @@ createApp({
                     messages : [
                         {
                             message : "Ciao, andiamo a mangiare la pizza stasera?",
-                            hour : "15:30",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:30"
+                            },
                             status : "received",
                             delateMessage : false
                         },
                         {
                             message : "No, l'ho già mangiata ieri, ordiniamo sushi!",
-                            hour : "15:50",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:50"
+                            },
                             status : "sent",
                             delateMessage : false
                         },
                         {
                             message : "OK!!",
-                            hour : "15:51",
+                            date : {
+                                day : "10/01/2020",
+                                hour : "15:51"
+                            },
                             status : "received",
                             delateMessage : false
                         }
                     ],
                     visible : true,
                     messageNumber : 3,
-                    lastAccess : undefined
+                    lastAccess : {
+                        day : undefined,
+                        hour : undefined
+                    }
                 }
             ],
             chatToShow: 0,
@@ -223,6 +310,14 @@ createApp({
         showChat : function(i){
             this.chatToShow = i; 
         },
+        getDay : function(){
+            const data = new Date();
+            const day = data.getDate();
+            const month = (data.getMonth() + 1);
+            const year = data.getFullYear();
+            const fullDate = day + "/" + month + "/" + year;
+            return fullDate;
+        },
         getHour : function(){
             const data = new Date();
             const hour = data.getHours();
@@ -233,7 +328,10 @@ createApp({
         autoReply : function(i){
             this.contacts[i].messages.push({
                 message : "OK",
-                hour : this.getHour(),
+                date : {
+                    day : this.getDay(),
+                    hour : this.getHour()
+                },
                 status : "received",
                 delateMessage : false
             });
@@ -244,7 +342,10 @@ createApp({
             const i = this.chatToShow;
             this.contacts[this.chatToShow].messages.push({
                 message : this.inputUser,
-                hour : this.getHour(),
+                date : {
+                    day : this.getDay(),
+                    hour : this.getHour()
+                },
                 status : "sent",
                 delateMessage : false
             });
@@ -305,7 +406,13 @@ createApp({
             for(let i=0; i<this.contacts.length; i++){
                 for(let index=this.contacts[i].messages.length; index>0; index--){
                     if(this.contacts[i].messages[(index-1)].status == "received"){
-                        this.contacts[i].lastAccess = this.contacts[i].messages[(index-1)].hour;
+                        const dateToday = this.getDay();
+                        if(this.contacts[i].messages[(index-1)].date.day == dateToday){
+                            this.contacts[i].lastAccess.day = "oggi";
+                        }else{
+                            this.contacts[i].lastAccess.day = " il "+ this.contacts[i].messages[(index-1)].date.day;
+                        }
+                        this.contacts[i].lastAccess.hour = this.contacts[i].messages[(index-1)].date.hour;
                         break;
                     }
                 }
