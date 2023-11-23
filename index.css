@@ -38,7 +38,7 @@
 }
 
 .bacColGre{
-    background-color: rgba(233,235,235,255);
+    background-color: rgba(238,235,233,255);
 }
 /* Background */
 #app > div:first-child{
@@ -49,6 +49,14 @@
 #app > div:nth-child(2){
     height: 85vh;
     background-color: rgba(222,219,209,255);
+}
+
+.marTop0_1rem{
+    margin-top: 0.1rem;
+}
+
+.texDecUnd{
+    text-decoration: underline;
 }
 /* Container */
 #container{

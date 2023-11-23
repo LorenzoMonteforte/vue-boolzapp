@@ -1,0 +1,23 @@
+.curPoi{
+    cursor: pointer;
+}
+
+.hovColBla:hover{
+    color: black;
+}
+
+#searchBar > button:hover i{
+    color: black;
+}
+
+#searchBar > input:hover::placeholder{
+    color: black;
+}
+
+.hovBacColLigGre:hover{
+    background-color: rgba(248,248,248,255);
+}
+
+#inputMessage > div > input:hover::placeholder{
+    color: black;
+}

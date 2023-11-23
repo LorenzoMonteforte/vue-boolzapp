@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="index.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="hover.css">
 </head>
 <body>
     <div id="app">
@@ -20,35 +21,35 @@
                 <!-- User -->
                 <div id="user">
                     <div>
-                        <img class="profilePicture" src="img/avatar_io.jpg" alt="Foto profilo user">
-                        <div class="marLef0_5rem">Sofia</div>
+                        <img class="profilePicture curPoi" src="img/avatar_io.jpg" alt="Foto profilo user">
+                        <div class="marLef0_5rem curPoi">Sofia</div>
                     </div>
                     <div class="colGre">
-                        <i class="fa-solid fa-circle-notch"></i>
-                        <i class="fa-solid fa-message marLef1rem"></i>
-                        <i class="fa-solid fa-ellipsis-vertical marLef1rem marRig0_5rem"></i>
+                        <i class="fa-solid fa-circle-notch curPoi hovColBla"></i>
+                        <i class="fa-solid fa-message marLef1rem curPoi hovColBla"></i>
+                        <i class="fa-solid fa-ellipsis-vertical marLef1rem marRig0_5rem curPoi hovColBla"></i>
                     </div>
                 </div>
                 <!-- Notifications -->
                 <div id="notifications">
-                    <div class="profilePicture">
-                        <i class="fa-solid fa-bell-slash"></i>
+                    <div class="profilePicture curPoi" @click="actDisNot()">
+                        <i v-bind:class="iconNotification"></i>
                     </div>
                     <div class="marLef0_5rem">
-                        <h5>Ricevi notifiche di nuovi messaggi</h5>
-                        <a class="fonSiz0_75rem colGre" href="">Attiva notifiche desktop</a>
+                        <h5 class="curPoi" @click="actDisNot()">{{notificationMessage1}}</h5>
+                        <div class="fonSiz0_75rem colGre marTop0_1rem texDecUnd curPoi" @click="actDisNot()">{{notificationMessage2}}</div>
                     </div>
                 </div>
                 <!-- Search bar -->
                 <div id="searchBar">
-                    <button @click="filter()">
+                    <button class="curPoi" @click="filter()">
                         <i class="fa-solid fa-magnifying-glass colGre"></i>
                     </button>
-                    <input class="colGre" type="text" placeholder="Cerca o inizia una nuova chat" v-model="inputFilter">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="inputFilter" @keyup.enter="filter()">
                 </div>
                 <!-- Contacts -->
                 <div id="contacts">
-                    <div class="contact" v-for="(contact, i) in contacts" v-bind:class="i == chatToShow ? 'bacColGre' : ''" @click="showChat(i)" v-show="contact.visible == true">
+                    <div class="contact curPoi" v-for="(contact, i) in contacts" v-bind:class="i == chatToShow ? 'bacColGre' : 'hovBacColLigGre'" @click="showChat(i)" v-show="contact.visible == true">
                         <div>
                             <img class="profilePicture" v-bind:src="contact.srcProfilePicture" v-bind:alt="contact.alt">
                             <div class="marLef0_5rem">
@@ -65,16 +66,16 @@
                 <!-- Info contact chat -->
                 <div id="infoContactChat">
                     <div>
-                        <img class="profilePicture" v-bind:src="contacts[chatToShow].srcProfilePicture" alt="Contatto 1">
+                        <img class="profilePicture curPoi" v-bind:src="contacts[chatToShow].srcProfilePicture" alt="Contatto 1">
                         <div class="marLef0_5rem">
-                            <div>{{contacts[chatToShow].name}}</div>
+                            <div class="curPoi">{{contacts[chatToShow].name}}</div>
                             <div class="fonSiz0_75rem colGre">Ultimo accesso oggi alle 12:00</div>
                         </div>
                     </div>
                     <div class="colGre">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <i class="fa-solid fa-paperclip marLef1rem"></i>
-                        <i class="fa-solid fa-ellipsis-vertical marLef1rem marRig0_5rem"></i>
+                        <i class="fa-solid fa-magnifying-glass curPoi hovColBla"></i>
+                        <i class="fa-solid fa-paperclip marLef1rem curPoi hovColBla"></i>
+                        <i class="fa-solid fa-ellipsis-vertical marLef1rem marRig0_5rem curPoi hovColBla"></i>
                     </div>
                 </div>
                 <!-- Message container -->
@@ -82,7 +83,7 @@
                     <div class="messageCard" v-for="(message, i) in contacts[chatToShow].messages" v-bind:class="message.status == 'sent' ? 'sent' : 'received'" @click.prevent.right="showDelateMessage(i)">
                         <div>{{message.message}}</div>
                         <div class="colGre">{{message.hour}}</div>
-                        <div v-show="message.delateMessage == true" @click="delateMessage(i)">
+                        <div class="curPoi" v-show="message.delateMessage == true" @click="delateMessage(i)">
                             <i class="fa-solid fa-trash marRig0_5rem"></i>
                             Elimina messaggio
                         </div>
@@ -91,13 +92,13 @@
                 <!-- Input message -->
                 <div id="inputMessage">
                     <div>
-                        <i class="fa-regular fa-face-smile fonSiz1_25rem colGre"></i>
+                        <i class="fa-regular fa-face-smile fonSiz1_25rem colGre curPoi hovColBla"></i>
                     </div>
                     <div>
-                        <input class="colGre" type="text" placeholder="Scrivi un messaggio" v-model="inputUser" @keyup.enter="sendMessage()">
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="inputUser" @keyup.enter="sendMessage()">
                     </div>
                     <div>
-                        <i class="fa-solid fa-microphone fonSiz1_25rem colGre"></i>
+                        <i class="fa-solid fa-microphone fonSiz1_25rem colGre curPoi hovColBla"></i>
                     </div>
                 </div>
             </div>

@@ -205,6 +205,9 @@ createApp({
             chatToShow: 0,
             inputUser : "",
             inputFilter : "",
+            iconNotification : "fa-solid fa-bell-slash",
+            notificationMessage1 : "Ricevi notifiche di nuovi messaggi",
+            notificationMessage2 : "Attiva notifiche desktop"
         }
     },
     methods : {
@@ -237,8 +240,9 @@ createApp({
         filter : function(){
             const inputFilterLength = this.inputFilter.length;
             for(let i=0; i<this.contacts.length; i++){
-                const subString = this.contacts[i].name.substr(0, inputFilterLength);
-                if(this.inputFilter == subString){
+                let subString = this.contacts[i].name.substr(0, inputFilterLength);
+                subString = subString.toLowerCase();
+                if(this.inputFilter.toLowerCase() == subString){
                     this.contacts[i].visible = true;
                 }else{
                     this.contacts[i].visible = false;
@@ -261,6 +265,17 @@ createApp({
         delateMessage : function(i){
             this.contacts[this.chatToShow].messages.splice(i, 1);
             this.contacts[this.chatToShow].messageNumber--;
+        },
+        actDisNot : function(){
+            if(this.notificationMessage2 == "Attiva notifiche desktop"){
+                this.iconNotification = "fa-solid fa-bell";
+                this.notificationMessage1 = "Disattiva notifiche di nuovi messaggi";
+                this.notificationMessage2 = "Disattiva notifiche desktop";
+            }else{
+                this.iconNotification = "fa-solid fa-bell-slash";
+                this.notificationMessage1 = "Ricevi notifiche di nuovi messaggi";
+                this.notificationMessage2 = "Attiva notifiche desktop";
+            }
         }
     }
 }).mount('#app')
