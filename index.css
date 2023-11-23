@@ -40,6 +40,10 @@
 .bacColGre{
     background-color: rgba(238,235,233,255);
 }
+
+.fonSiz2rem{
+    font-size: 2rem;
+}
 /* Background */
 #app > div:first-child{
     height: 15vh;
@@ -150,6 +154,8 @@
 
 .contact > div:first-child{
     display: flex;
+    max-height: 48px;
+    overflow: hidden;
 }
 /* Chat */
 #chat{
@@ -169,6 +175,10 @@
 #infoContactChat > div{
     display: flex;
     align-items: center;
+}
+
+#infoContactChat > div:last-child{
+    display: none;
 }
 /* Message container */
 #messageContainer{
@@ -197,6 +207,7 @@
     font-size: 0.75rem;
     padding: 1rem;
     padding-right: 0;
+    word-break: break-word;
 }
 
 .messageCard > div:nth-child(2){

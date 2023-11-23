@@ -207,7 +207,8 @@ createApp({
             inputFilter : "",
             iconNotification : "fa-solid fa-bell-slash",
             notificationMessage1 : "Ricevi notifiche di nuovi messaggi",
-            notificationMessage2 : "Attiva notifiche desktop"
+            notificationMessage2 : "Attiva notifiche desktop",
+            resCla : false
         }
     },
     methods : {
@@ -275,6 +276,13 @@ createApp({
                 this.iconNotification = "fa-solid fa-bell-slash";
                 this.notificationMessage1 = "Ricevi notifiche di nuovi messaggi";
                 this.notificationMessage2 = "Attiva notifiche desktop";
+            }
+        },
+        funRes : function(){
+            if(this.resCla == false){
+                this.resCla = true;
+            }else{
+                this.resCla = false;
             }
         }
     }

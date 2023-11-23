@@ -1,0 +1,39 @@
+@media only screen and (max-width: 992px){
+    #container{
+        height: 95vh;
+        width: 95%;
+    }
+
+    #contactsContainer{
+        width: 100%;
+    }
+
+    #chat{
+        width: 0;
+        overflow: hidden;
+    }
+
+    .resContactsContainer{
+        width: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .resChat{
+        width: 100% !important;
+    }
+
+    #infoContactChat > div:nth-child(2){
+        display: none;
+    }
+
+    #infoContactChat > div:last-child{
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    #container{
+        height: 100vh;
+        width: 100%;
+    }
+}

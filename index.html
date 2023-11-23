@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="hover.css">
+    <link rel="stylesheet" href="mediaQuery.css">
 </head>
 <body>
     <div id="app">
@@ -17,7 +18,7 @@
         <!-- Container -->
         <div id="container" @click="removeAllDelateMessage()">
             <!-- Contacts container -->
-            <div id="contactsContainer">
+            <div id="contactsContainer" v-bind:class="resCla == true ? 'resContactsContainer' : ''">
                 <!-- User -->
                 <div id="user">
                     <div>
@@ -49,7 +50,7 @@
                 </div>
                 <!-- Contacts -->
                 <div id="contacts">
-                    <div class="contact curPoi" v-for="(contact, i) in contacts" v-bind:class="i == chatToShow ? 'bacColGre' : 'hovBacColLigGre'" @click="showChat(i)" v-show="contact.visible == true">
+                    <div class="contact curPoi" v-for="(contact, i) in contacts" v-bind:class="i == chatToShow ? 'bacColGre' : 'hovBacColLigGre'" @click="showChat(i), funRes()" v-show="contact.visible == true">
                         <div>
                             <img class="profilePicture" v-bind:src="contact.srcProfilePicture" v-bind:alt="contact.alt">
                             <div class="marLef0_5rem">
@@ -62,7 +63,7 @@
                 </div>
             </div>
             <!-- Chat -->
-            <div id="chat">
+            <div id="chat" v-bind:class="resCla == true ? 'resChat' : ''">
                 <!-- Info contact chat -->
                 <div id="infoContactChat">
                     <div>
@@ -76,6 +77,9 @@
                         <i class="fa-solid fa-magnifying-glass curPoi hovColBla"></i>
                         <i class="fa-solid fa-paperclip marLef1rem curPoi hovColBla"></i>
                         <i class="fa-solid fa-ellipsis-vertical marLef1rem marRig0_5rem curPoi hovColBla"></i>
+                    </div>
+                    <div @click="funRes()">
+                        <i class="fa-solid fa-chevron-left marRig0_5rem curPoi fonSiz2rem"></i>
                     </div>
                 </div>
                 <!-- Message container -->
