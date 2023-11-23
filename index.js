@@ -2,6 +2,7 @@ const {createApp} = Vue
 createApp({
     data(){
         return{
+            /* Array contenente tutti i contatti */
             contacts : [
                 {
                     srcProfilePicture: "img/avatar_1.jpg",
@@ -297,19 +298,26 @@ createApp({
                     }
                 }
             ],
+            /* Chat selezionata (all'avvio dell'app quella del primo contatto) */
             chatToShow: 0,
+            /* Contenuto messaggio inserito dall'utente */
             inputUser : "",
+            /* Contenuto della ricerca */
             inputFilter : "",
+            /* Attiva/disattiva notifiche */
             iconNotification : "fa-solid fa-bell-slash",
             notificationMessage1 : "Ricevi notifiche di nuovi messaggi",
             notificationMessage2 : "Attiva notifiche desktop",
+            /* Condizione per il responsive */
             resCla : false
         }
     },
     methods : {
+        /* Indica quale chat mostrare */
         showChat : function(i){
             this.chatToShow = i; 
         },
+        /* Recupera giorno mese anno */
         getDay : function(){
             const data = new Date();
             const day = data.getDate();
@@ -318,6 +326,7 @@ createApp({
             const fullDate = day + "/" + month + "/" + year;
             return fullDate;
         },
+        /* Recupera ora minuti */
         getHour : function(){
             const data = new Date();
             const hour = data.getHours();
@@ -325,6 +334,7 @@ createApp({
             const fullTimetable = hour + ":" + minutes;
             return fullTimetable;
         },
+        /* Risposta automatica */
         autoReply : function(i){
             this.contacts[i].messages.push({
                 message : "OK",
@@ -338,6 +348,7 @@ createApp({
             this.contacts[i].messageNumber++;
             this.calculateLastAccess();
         },
+        /* Invia il messaggio inserito dall'utente (lo va ad aggiungere all'array contacts, messages) */
         sendMessage : function(){
             if(this.inputUser != ""){
                 const i = this.chatToShow;
@@ -357,6 +368,7 @@ createApp({
                 }, 1000)
             }
         },
+        /* Mostra soltanto i contatti che iniziano con la ricerca effettuata dall'utente */
         filter : function(){
             const inputFilterLength = this.inputFilter.length;
             for(let i=0; i<this.contacts.length; i++){
@@ -369,11 +381,13 @@ createApp({
                 }
             }
         },
+        /* Rimuove tutte le finestre dov'è possibile eliminare il messaggio */
         removeAllDelateMessage : function(){
             for(let index=0; index<this.contacts[this.chatToShow].messages.length; index++){
                 this.contacts[this.chatToShow].messages[index].delateMessage = false;
             }
         },
+        /* Mostra la finestra dov'è possibile eliminare il messaggio */
         showDelateMessage : function(i){
             if(this.contacts[this.chatToShow].messages[i].delateMessage == false){
                 this.removeAllDelateMessage();
@@ -382,10 +396,12 @@ createApp({
                 this.contacts[this.chatToShow].messages[i].delateMessage = false;
             }
         },
+        /* Elimina il messaggio */
         delateMessage : function(i){
             this.contacts[this.chatToShow].messages.splice(i, 1);
             this.contacts[this.chatToShow].messageNumber--;
         },
+        /* Attiva/disattiva notifiche */
         actDisNot : function(){
             if(this.notificationMessage2 == "Attiva notifiche desktop"){
                 this.iconNotification = "fa-solid fa-bell";
@@ -397,6 +413,7 @@ createApp({
                 this.notificationMessage2 = "Attiva notifiche desktop";
             }
         },
+        /* Funzione per il responsive */
         funRes : function(){
             if(this.resCla == false){
                 this.resCla = true;
@@ -404,6 +421,7 @@ createApp({
                 this.resCla = false;
             }
         },
+        /* Calcola l'ultimo accesso dei contatti */
         calculateLastAccess : function(){
             for(let i=0; i<this.contacts.length; i++){
                 for(let index=this.contacts[i].messages.length; index>0; index--){
