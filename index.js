@@ -16,7 +16,8 @@ createApp({
                                 hour : "15:30"
                             },
                             status : "sent",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : true
                         },
                         {
                             message : "Ricordati di stendere i panni",
@@ -25,7 +26,8 @@ createApp({
                                 hour : "15:50"
                             },
                             status : "sent",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         },
                         {
                             message : "Tutto fatto",
@@ -34,7 +36,8 @@ createApp({
                                 hour : "16:15"
                             },
                             status : "received",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         }
                     ],
                     visible : true,
@@ -56,7 +59,8 @@ createApp({
                                 hour : "16:30"
                             },
                             status : "sent",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : true
                         },
                         {
                             message : "Bene grazie! Stasera ci vediamo?",
@@ -65,7 +69,8 @@ createApp({
                                 hour : "16:30"
                             },
                             status : "received",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         },
                         {
                             message : "Mi piacerebbe ma devo andare a fare la spesa",
@@ -74,7 +79,8 @@ createApp({
                                 hour : "16:35"
                             },
                             status : "sent",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         }
                     ],
                     visible : true,
@@ -96,7 +102,8 @@ createApp({
                                 hour : "10:10"
                             },
                             status : "received",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : true
                         },
                         {
                             message : "Sicuro di non aver sbagliato chat?",
@@ -105,7 +112,8 @@ createApp({
                                 hour : "10:20"
                             },
                             status : "sent",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         },
                         {
                             message : "Ah scusa!",
@@ -114,7 +122,8 @@ createApp({
                                 hour : "16:15"
                             },
                             status : "received",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         }
                     ],
                     visible : true,
@@ -136,7 +145,8 @@ createApp({
                                 hour : "15:30"
                             },
                             status : "sent",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : true
                         },
                         {
                             message : "Si, ma preferirei andare al cinema",
@@ -145,7 +155,8 @@ createApp({
                                 hour : "15:50"
                             },
                             status : "received",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         }
                     ],
                     visible : true,
@@ -167,7 +178,8 @@ createApp({
                                 hour : "15:30"
                             },
                             status : "sent",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : true
                         },
                         {
                             message : "Va bene, stasera la sento",
@@ -176,7 +188,8 @@ createApp({
                                 hour : "15:50"
                             },
                             status : "received",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         }
                     ],
                     visible : true,
@@ -198,7 +211,8 @@ createApp({
                                 hour : "15:30"
                             },
                             status : "sent",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : true
                         },
                         {
                             message : "Non ancora",
@@ -207,7 +221,8 @@ createApp({
                                 hour : "15:50"
                             },
                             status : "received",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         },
                         {
                             message : "Nessuna nuova, buona nuova",
@@ -216,7 +231,8 @@ createApp({
                                 hour : "15:51"
                             },
                             status : "sent",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         }
                     ],
                     visible : true,
@@ -238,7 +254,8 @@ createApp({
                                 hour : "15:30"
                             },
                             status : "sent",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : true
                         },
                         {
                             message : "Grazie per avermelo ricordato, le scrivo subito!",
@@ -247,7 +264,8 @@ createApp({
                                 hour : "15:50"
                             },
                             status : "received",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         }
                     ],
                     visible : true,
@@ -269,7 +287,8 @@ createApp({
                                 hour : "15:30"
                             },
                             status : "received",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : true
                         },
                         {
                             message : "No, l'ho già mangiata ieri, ordiniamo sushi!",
@@ -278,7 +297,8 @@ createApp({
                                 hour : "15:50"
                             },
                             status : "sent",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         },
                         {
                             message : "OK!!",
@@ -287,7 +307,8 @@ createApp({
                                 hour : "15:51"
                             },
                             status : "received",
-                            delateMessage : false
+                            delateMessage : false,
+                            isFirst : false
                         }
                     ],
                     visible : true,
@@ -334,6 +355,18 @@ createApp({
             const fullTimetable = hour + ":" + minutes;
             return fullTimetable;
         },
+        /* Calcola se è il primo messaggio di giornata */
+        isFirstMessage : function(){
+            for(let i=0; i<this.contacts.length; i++){
+                for(let index=0; index<this.contacts[i].messages.length; index++){
+                    if((index+1) != this.contacts[i].messages.length){
+                        if(this.contacts[i].messages[index].date.day != this.contacts[i].messages[(index+1)].date.day){
+                            this.contacts[i].messages[(index+1)].isFirst = true;
+                        }
+                    }
+                }
+            }
+        },
         /* Risposta automatica */
         autoReply : function(i){
             this.contacts[i].messages.push({
@@ -345,8 +378,9 @@ createApp({
                 status : "received",
                 delateMessage : false
             });
-            this.contacts[i].messageNumber++;
             this.calculateLastAccess();
+            this.isFirstMessage();
+            this.contacts[i].messageNumber++;
         },
         /* Invia il messaggio inserito dall'utente (lo va ad aggiungere all'array contacts, messages) */
         sendMessage : function(){
@@ -361,8 +395,9 @@ createApp({
                     status : "sent",
                     delateMessage : false
                 });
-                this.contacts[this.chatToShow].messageNumber++;
                 this.inputUser = "";
+                this.isFirstMessage();
+                this.contacts[this.chatToShow].messageNumber++;
                 setTimeout(()=>{
                     this.autoReply(i);
                 }, 1000)
@@ -441,5 +476,6 @@ createApp({
     },
     mounted(){
         this.calculateLastAccess();
+        this.isFirstMessage();
     }
 }).mount('#app')

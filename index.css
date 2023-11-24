@@ -44,6 +44,14 @@
 .fonSiz2rem{
     font-size: 2rem;
 }
+
+.marTop1rem{
+    margin-top: 1rem;
+}
+
+.marTop0_5rem{
+    margin-top: 0.5rem;
+}
 /* Background */
 #app > div:first-child{
     height: 15vh;
@@ -190,16 +198,28 @@
     overflow: auto;
 }
 
+.dateMessageContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dateMessageContainer:first-of-type{
+    margin-top: 0;
+}
+
+.date{
+    text-align: center;
+    background-color: rgb(245,238,186);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
 .messageCard{
     width: 40%;
     border-radius: 0.5rem;
     display: flex;
-    margin-top: 0.5rem;
     position: relative;
-}
-
-.messageCard:first-of-type{
-    margin-top: 0;
 }
 
 .messageCard > div:first-child{

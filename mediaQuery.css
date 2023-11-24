@@ -29,6 +29,10 @@
     #infoContactChat > div:last-child{
         display: flex;
     }
+
+    #messageContainer{
+        padding: 1rem;
+    }
 }
 
 @media only screen and (max-width: 576px){

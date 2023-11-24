@@ -85,12 +85,15 @@
                 </div>
                 <!-- Message container -->
                 <div id="messageContainer">
-                    <div class="messageCard" v-for="(message, i) in contacts[chatToShow].messages" v-bind:class="message.status == 'sent' ? 'sent' : 'received'" @click.prevent.right="showDelateMessage(i)">
-                        <div>{{message.message}}</div>
-                        <div class="colGre">{{message.date.hour}}</div>
-                        <div class="curPoi" v-show="message.delateMessage == true" @click="delateMessage(i)">
-                            <i class="fa-solid fa-trash marRig0_5rem"></i>
-                            Elimina messaggio
+                    <div class="dateMessageContainer" v-for="(message, i) in contacts[chatToShow].messages" v-bind:class="message.isFirst == true ? 'marTop1rem' : 'marTop0_5rem'">
+                        <div class="date" v-if="message.isFirst == true">{{message.date.day}}</div>
+                        <div class="messageCard" v-bind:class="message.status == 'sent' ? 'sent' : 'received', message.isFirst == true ? 'marTop0_5rem' : ''" @click.prevent.right="showDelateMessage(i)">
+                            <div>{{message.message}}</div>
+                            <div class="colGre">{{message.date.hour}}</div>
+                            <div class="curPoi" v-show="message.delateMessage == true" @click="delateMessage(i)">
+                                <i class="fa-solid fa-trash marRig0_5rem"></i>
+                                Elimina messaggio
+                            </div>
                         </div>
                     </div>
                 </div>
