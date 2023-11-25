@@ -376,7 +376,8 @@ createApp({
                     hour : this.getHour()
                 },
                 status : "received",
-                delateMessage : false
+                delateMessage : false,
+                isFirst : false
             });
             this.calculateLastAccess();
             this.isFirstMessage();
@@ -393,7 +394,8 @@ createApp({
                         hour : this.getHour()
                     },
                     status : "sent",
-                    delateMessage : false
+                    delateMessage : false,
+                    isFirst : false
                 });
                 this.inputUser = "";
                 this.isFirstMessage();
